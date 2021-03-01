@@ -1,0 +1,181 @@
+﻿<meta charset="UTF-8">
+<html>
+<head>
+  <title>Parcel by Neve</title>
+  <style>
+    img
+    {
+      border: 1px solid black;
+      border-bottom-width: 3px;
+      box-shadow: lightgray 10px 10px;
+    }
+  </style>
+  <script>
+    var page = 0;
+
+    function turnPageLeft()
+    {
+      document.getElementById("page" + page.toString()).style.display = "none";
+
+      // turn back two pages
+      page = page - 2;
+
+      document.getElementById("page" + page.toString()).style.display = "table-row";
+
+      if (page == 0)
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "hidden";
+        document.getElementById("turnPageRightButton").style.visibility = "visible";
+        document.getElementById("openPosterButton").style.display = "none";
+        document.getElementById("closePosterButton").style.display = "none";
+      }
+      else 
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "visible";
+        document.getElementById("turnPageRightButton").style.visibility = "visible";
+        document.getElementById("openPosterButton").style.display = "none";
+        document.getElementById("closePosterButton").style.display = "none";
+      }
+    }
+
+    function turnPageRight()
+    {
+      document.getElementById("page" + page.toString()).style.display = "none";
+
+      // turn forward two pages
+      page = page + 2;
+
+      document.getElementById("page" + page.toString()).style.display = "table-row";
+
+      if (page == 8) 
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "visible";
+        document.getElementById("turnPageRightButton").style.visibility = "hidden";
+        document.getElementById("openPosterButton").style.display = "block";
+        document.getElementById("closePosterButton").style.display = "none";
+      }
+      else
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "visible";
+        document.getElementById("turnPageRightButton").style.visibility = "visible";
+        document.getElementById("openPosterButton").style.display = "none";
+        document.getElementById("closePosterButton").style.display = "none";
+      }
+    }
+
+    function openPoster()
+    {
+      document.getElementById("page" + page.toString()).style.display = "none";
+
+      page = 10;
+
+      document.getElementById("poster").style.display = "table-row";
+
+      document.getElementById("turnPageLeftButton").style.visibility = "hidden";
+      document.getElementById("turnPageRightButton").style.visibility = "hidden";
+      document.getElementById("openPosterButton").style.display = "none";
+      document.getElementById("closePosterButton").style.display = "block";
+      document.getElementById("pageButtons").style.display = "none";
+    }
+
+    function closePoster() 
+    {
+      document.getElementById("poster").style.display = "none";
+
+      page = 8;
+
+      document.getElementById("page" + page.toString()).style.display = "table-row";
+
+      document.getElementById("turnPageLeftButton").style.visibility = "visible";
+      document.getElementById("turnPageRightButton").style.visibility = "hidden";
+      document.getElementById("openPosterButton").style.display = "block";
+      document.getElementById("closePosterButton").style.display = "none";
+      document.getElementById("pageButtons").style.display = "table-row";
+    }
+  </script>
+</head>
+<body>
+  <center>
+    <header style="text-decoration: underline;">Parcel by Neve</header>
+    <table width="640" border="0" cellpadding="0" cellspacing="0" id="zines" style="text-align: center;">
+      <tbody>
+        <tr>
+          <td>
+            <br />
+          </td>
+        </tr>
+        <tr id="page0" style="display: table-row">
+          <td width="320"></td>
+          <td>
+            <p>Page 1</p>
+            <img src="01.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page2" style="display: none">
+          <td>
+            <p>Page 2</p>
+            <img src="02.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td>
+            <p>Page 3</p>
+            <img src="03.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page4" style="display: none">
+          <td>
+            <p>Page 4</p>
+            <img src="04.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td>
+            <p>Page 5</p>
+            <img src="05.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page6" style="display: none">
+          <td>
+            <p>Page 6</p>
+            <img src="06.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td>
+            <p>Page 7</p>
+            <img src="07.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page8" style="display: none">
+          <td>
+            <p>Page 8</p>
+            <img src="08.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td width="320"></td>
+        </tr>
+        <tr id="poster" style="display: none">
+          <td>
+            <p>Poster</p>
+            <img src="poster.jpg" width="640" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <br />
+          </td>
+        </tr>
+        <tr id="pageButtons">
+          <td>
+            <button id="turnPageLeftButton" onclick="turnPageLeft()" style="visibility: hidden">&lt;- turn page</button>
+          </td>
+          <td>
+            <button id="turnPageRightButton" onclick="turnPageRight()" style="visibility: visible">turn page -&gt;</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <br />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <button id="openPosterButton" onclick="openPoster()" style="display: none">open poster</button>
+      <button id="closePosterButton" onclick="closePoster()" style="display: none">close poster</button>
+  </center>
+</body>
+</html>

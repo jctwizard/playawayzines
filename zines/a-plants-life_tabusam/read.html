@@ -1,0 +1,130 @@
+﻿<meta charset="UTF-8">
+<html>
+<head>
+  <title>A Plant's Life by Tabusam</title>
+  <style>
+    img
+    {
+      border: 1px solid black;
+      border-bottom-width: 3px;
+      box-shadow: lightgray 10px 10px;
+    }
+  </style>
+  <script>
+    var page = 0;
+
+    function turnPageLeft()
+    {
+      document.getElementById("page" + page.toString()).style.display = "none";
+
+      // turn back two pages
+      page = page - 2;
+
+      document.getElementById("page" + page.toString()).style.display = "table-row";
+
+      if (page == 0)
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "hidden";
+        document.getElementById("turnPageRightButton").style.visibility = "visible";
+      }
+      else 
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "visible";
+        document.getElementById("turnPageRightButton").style.visibility = "visible";
+      }
+    }
+
+    function turnPageRight()
+    {
+      document.getElementById("page" + page.toString()).style.display = "none";
+
+      // turn forward two pages
+      page = page + 2;
+
+      document.getElementById("page" + page.toString()).style.display = "table-row";
+
+      if (page == 8) 
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "visible";
+        document.getElementById("turnPageRightButton").style.visibility = "hidden";
+      }
+      else
+      {
+        document.getElementById("turnPageLeftButton").style.visibility = "visible";
+        document.getElementById("turnPageRightButton").style.visibility = "visible";
+      }
+    }
+  </script>
+</head>
+<body>
+  <center>
+    <header style="text-decoration: underline;">A Plant's Life by Tabusam</header>
+    <table width="640" border="0" cellpadding="0" cellspacing="0" id="zines" style="text-align: center;">
+      <tbody>
+        <tr>
+          <td>
+            <br />
+          </td>
+        </tr>
+        <tr id="page0" style="display: table-row">
+          <td width="320"></td>
+          <td>
+            <p>Page 1</p>
+            <img src="01.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page2" style="display: none">
+          <td>
+            <p>Page 2</p>
+            <img src="02.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td>
+            <p>Page 3</p>
+            <img src="03.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page4" style="display: none">
+          <td>
+            <p>Page 4</p>
+            <img src="04.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td>
+            <p>Page 5</p>
+            <img src="05.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page6" style="display: none">
+          <td>
+            <p>Page 6</p>
+            <img src="06.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td>
+            <p>Page 7</p>
+            <img src="07.jpg" width="320" onclick="turnPageRight()" style="cursor: pointer" />
+          </td>
+        </tr>
+        <tr id="page8" style="display: none">
+          <td>
+            <p>Page 8</p>
+            <img src="08.jpg" width="320" onclick="turnPageLeft()" style="cursor: pointer" />
+          </td>
+          <td width="320"></td>
+        </tr>
+        <tr>
+          <td>
+            <br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="turnPageLeftButton" onclick="turnPageLeft()" style="visibility: hidden">&lt;- turn page</button>
+          </td>
+          <td>
+            <button id="turnPageRightButton" onclick="turnPageRight()" style="visibility: visible">turn page -&gt;</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </center>
+</body>
+</html>
